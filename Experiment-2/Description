@@ -1,0 +1,37 @@
+This project is a simple Banking UI created using HTML and CSS. It shows a balance and has two buttons: one for Deposit and one for Withdraw.
+
+ HTML Description:
+In the HTML file:
+
+There is a main container called .outer_box that holds everything.
+
+Inside it, there's another box .inner_box where all the actual content is placed.
+
+The balance is shown using an <h1> tag with the value $0.
+
+Below that, there are two buttons:
+
+One button is labeled Deposit.
+
+The other button is labeled Withdraw.
+
+This is the basic structure for a banking interface layout.
+
+🎨 CSS Description:
+In the CSS file (exp2.css), styling is done to make the page look clean and centered.
+
+The body is styled to center everything using Flexbox and has a light grey background.
+
+The .outer_box has a soft background color, padding, rounded corners, and a shadow to make it stand out.
+
+The .inner_box is white with padding, rounded edges, and a subtle shadow—it looks like a card.
+
+The heading (<h1>) is large and dark, showing the balance clearly.
+
+The buttons are styled with colors:
+
+The Deposit button is green with white text.
+
+The Withdraw button is red with white text.
+
+Both buttons have padding, margin, and rounded edges to make them look neat and clickable.
