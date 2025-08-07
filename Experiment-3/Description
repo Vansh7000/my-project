@@ -1,0 +1,108 @@
+The primary goal is to design and build a responsive and professional admin dashboard using HTML and CSS Grid. Additionally, this project focuses on adding theme-switching functionality (light and dark mode) to demonstrate dynamic UI adaptability without reloading the page. This enhances both the usability and user experience of the interface.
+
+Task Description:
+This web-based dashboard is divided into four main sections, arranged using CSS Grid layout:
+
+1. Header
+Contains:
+
+Dashboard title (Admin Dashboard)
+
+A theme toggle button labeled dark theme (or toggles to light theme after click)
+
+Purpose:
+
+Provides a unified top navigation bar
+
+Enables user control for theme switching
+
+2. Sidebar
+Contains:
+
+A vertical navigation menu with links:
+
+Home
+
+Users
+
+Settings
+
+Purpose:
+
+Acts as the primary navigation panel
+
+Positioned using CSS Grid and visually separated with a border
+
+3. Main Content Area
+Contains:
+
+A heading (Welcome Admin!...)
+
+Placeholder content describing this as the main area for charts, reports, or dashboard widgets
+
+Purpose:
+
+Represents the central functional part of the dashboard where dynamic data will be displayed
+
+4. Footer
+Contains:
+
+A simple copyright
+
+Text: © 2025 Admin Dashboard. All rights reserved.
+
+Purpose:
+
+Final UI section providing legal or informational closure
+
+Layout Details (CSS Grid):
+The entire layout uses a 2-column CSS Grid to structure the sections.
+
+header and footer span both columns (grid-column: 1 / span 2)
+
+nav.sidebar occupies the left column
+
+main content takes the right column beside the sidebar
+
+height: 100vh; ensures the dashboard occupies full screen height
+
+Theme Switching Functionality:
+Triggered by: Clicking the button with ID themebutton
+
+Mechanism: JavaScript (can be added) toggles between light and dark mode by dynamically:
+
+Changing background color of body, header, main, footer, and nav
+
+Updating text colors to maintain contrast
+
+Benefit:
+
+Provides a user-friendly toggle between modes
+
+No page reload is needed → seamless interaction
+
+Visual & Functional Benefits:
+Responsive layout using CSS Grid
+
+Semantic HTML5 structure: <header>, <nav>, <main>, <footer>
+
+Clean separation of concerns via external stylesheet
+
+Improved accessibility and user customization via theme switch
+
+Conclusion:
+This Admin Dashboard effectively showcases how to combine:
+
+Modern layout design (CSS Grid)
+
+Semantic web structure
+
+Interactive theming (via JavaScript toggle)
+
+It is suitable for:
+
+Real-time data monitoring
+
+Internal admin panels
+
+Role-based access systems in web applications
