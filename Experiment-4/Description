@@ -1,0 +1,87 @@
+1. FIELD: Textarea
+
+Requirement:
+
+The field allows the user to type any text.
+
+It should not remain empty if the purpose is to measure text length.
+
+Every keystroke (typing or deleting) should trigger the character counter update.
+
+Functionality:
+
+As soon as the user begins typing, the counter starts displaying the total number of characters typed.
+
+If the user deletes text, the counter decreases accordingly.
+
+If no text is present, the counter shows 0.
+
+Validation Rules:
+
+Uses JavaScript’s input event listener to track changes dynamically.
+
+No restrictions on input (unlike forms with patterns). Any character typed is counted, including spaces, symbols, and numbers.
+
+VALID INPUTS & OUTPUTS
+
+"Hello" → Character count: 5
+
+"OpenAI GPT" → Character count: 10
+
+" " (3 spaces) → Character count: 3
+
+"12345" → Character count: 5
+
+INVALID INPUTS & OUTPUTS
+
+"" (empty) → Character count: 0 (indicates no text entered).
+
+No specific invalid characters, since the counter accepts all inputs. The only case considered “invalid” is when no input is provided.
+
+SCRIPT FUNCTIONALITY (Breakdown)
+
+document.getElementById("textInput") → Captures the textarea input.
+
+document.getElementById("charCount") → Captures the span element that displays the count.
+
+addEventListener("input", …) → Listens for changes in the textarea.
+
+textInput.value.length → Calculates the length of the entered text.
+
+charCount.textContent = … → Updates the character counter dynamically.
+
+CSS / STYLING (If applied)
+
+(Currently no CSS is used in this version. But typically, CSS can be added as follows:)
+
+body: To set background color and center the counter section.
+
+textarea: To define size, padding, border, and rounded corners for a neat look.
+
+counter text (span): To highlight the count using larger font or bold color.
+
+FORM SUBMISSION
+
+This project does not include a submit button like a registration form.
+
+The goal is only instant feedback while typing.
+
+If required in future, the counter can be integrated into forms (e.g., comments, feedback, social posts) with a maximum character limit.
+
+LEARNING OUTCOMES
+
+Learnt how to create a live character counter using HTML & JavaScript.
+
+Understood the use of JavaScript events (input) for real-time updates.
+
+Practiced DOM manipulation using getElementById and textContent.
+
+Explored how to test valid and invalid inputs (empty vs non-empty).
+
+Understood how live counters are useful in real-world applications like:
+
+Social media posts with character limits (e.g., Twitter, Instagram).
+
+Feedback/Comment forms.
+
+Registration forms requiring limited input.
