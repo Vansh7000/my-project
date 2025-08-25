@@ -1,69 +1,78 @@
-PROJECT: Drawing Tool with Canvas and Clear Function
+PROJECT: Dynamic Product Filter
 1) Technologies Used:
-  a) HTML5 (Canvas element and page structure)
-  b) CSS3 (Layout, styling, shadows, hover effects)
-  c) JavaScript (Drawing logic and clear functionality)
+  a) HTML5 (Structure of product list and filter dropdown.)
+  b) CSS3 (Styling of container, dropdown, and product items.)
+  c) JavaScript (Filtering functionality (show/hide products dynamically)).
 
 2) Project Overview:
-  a) In this project, I created a simple Drawing Tool using the HTML5 <canvas> element and JavaScript.
-  b) The user can draw freely on the canvas using the mouse and also has the option to clear the canvas with a button.
-  c) Such a tool can be applied in sketching apps, online classrooms, or basic design boards.
-  d) The interface is designed with a centered layout, modern styling, and responsive alignment for better usability.
+  a) This project is a Dynamic Product Filtering System where the user selects a category (Clothing, Electronics, Books, etc.) from a dropdown menu, and the displayed product list automatically updates.
+  b) The main goal is to practice DOM manipulation using data attributes for filtering.
+  c) Such a feature is very useful in e-commerce websites like Amazon or Flipkart where users filter products by category.
 
 3) Structure:
-  a) Drawing Functionality:
-    i) Implemented drawing by tracking mouse events (mousedown, mousemove, and mouseup). 
-   ii) The canvas listens to the mouse position and draws smooth lines with adjustable properties like color, width, and line style.
-   SNIPPET:
-        canvas.addEventListener('mousedown', (event) => {
-            isDrawing = true;
-            const rect = canvas.getBoundingClientRect();
-            [lastX, lastY] = [event.clientX - rect.left, event.clientY - rect.top];
-            ctx.lineWidth = 3;
-            ctx.lineCap = 'round';
-            ctx.strokeStyle = 'blue';
-        });
+  a) Dropdown Menu (Filter Control):
+    i) A simple <select> element with category options.
+   ii) Connected to JavaScript to trigger filtering whenever the user changes the category.
+      SNIPPET:  
+        <select id="filter">
+            <option value="all">All</option>
+            <option value="clothing">Clothing</option>
+            <option value="electronics">Electronics</option>
+            <option value="books">Books</option>
+        </select>
 
-
-  b) Header:
-    i) Title of the project: “Virappan’s Drawing Tool”
-   ii) Placed above the canvas in a neat container.
+  b) Product List (Grid of Items):
+    i) Each product is wrapped inside a card with a data-category attribute.
+   ii) This helps JS identify the category of each product.
        SNIPPET:
-          <h1>Virappan's Drawing Tool</h1>
+          <div class="product" data-category="clothing">T-Shirt</div>
+          <div class="product" data-category="electronics">Laptop</div>
+          <div class="product" data-category="books">JavaScript Guide</div>
+
 
             
-  C) Canvas:
-    i) Main area where user can draw using mouse.
-   ii) Bordered and styled with shadows and dashed lines for clear visibility.  
+  C) JavaScript Filtering Functionality: 
+    i) Captures selected category from dropdown.
+   ii) Loops through all products and hides those that don’t match.
+  iii) If "all" is selected → shows all products.
        SNIPPET:
-          <canvas id="drawing-canvas" width="800" height="600"></canvas>
+          document.getElementById("filter").addEventListener("change", function() {
+                let category = this.value;
+                let products = document.querySelectorAll(".product");
+             products.forEach(product => {
+              if (category === "all" || product.dataset.category === category) {
+                product.style.display = "block";
+              } else {
+                product.style.display = "none";
+                }
+             });
+            });
 
-  d) Toolbar (Clear Button):
-    i) A button to clear the drawing canvas.
-   ii) Styled with hover and active effects for better interaction.
+
+  d) CSS Styling:
+    i) Products styled as cards in a grid layout.
+   ii) Dropdown styled with padding and hover effects.
+  iii) Cards have shadows and spacing for a modern look.
        SNIPPET:
-          <button id="clear-canvas">Clear</button>
- 
-  e) JavaScript Clear Function:
-    i) Clears the entire canvas using clearRect().
-   ii) Resets the canvas back to its original blank state.
-        SNIPPET:
-          clearButton.addEventListener('click', () => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-          });
-
-
+          .product {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            text-align: center;
+           }
 
 4) Learning Outcomes
-  a) Learned how to use the HTML5 Canvas API for interactive graphics.
-  b) Understood the use of mouse events for creating real-time drawing functionality.
-  c) Explored CSS styling with gradients, box-shadows, and hover effects to improve UI design.
-  d) Practiced structuring code by keeping HTML, CSS, and JavaScript separate.
-  e) Learned how to reset canvas elements programmatically.
+  a) Learned how to use data attributes in HTML for categorization.
+  b) Understood real-time DOM manipulation with JavaScript.
+  c) Practiced implementing event listeners (change event for dropdown).
+  d) Improved CSS skills by designing grid layouts for product display.
+  e) Learned a real-world concept that directly connects to e-commerce sites.
 
 5) Key Concepts
-  a) HTML5 Canvas Drawing
-  b) Mouse Events Handling (mousedown, mousemove, mouseup)
-  c) Line Styling (lineWidth, lineCap, strokeStyle)
-  d) DOM Manipulation with JavaScript
-  e) Responsive and Modern CSS Styling
+  a) DOM Selection & Manipulation
+  b) Data Attributes (data-category)
+  c) Dropdown Event Handling (change event)
+  d) Dynamic Show/Hide using style.display
+  e) Responsive CSS Card Design
