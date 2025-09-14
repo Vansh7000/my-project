@@ -1,0 +1,43 @@
+Person Class Hierarchy with Student and Teacher Subclasses – Description
+CLASS: Person
+    ->Purpose: Defines the base structure for all persons.
+    ->Properties:
+        name: Required, string type (only alphabets allowed).
+        age: Required, numeric type (positive integer).
+    ->Methods:
+        getDetails(): Returns "Name: [name], Age: [age]".
+        Effect: Provides common attributes and methods that can be reused by subclasses.
+
+CLASS: Student (extends Person)
+    ->Purpose: Specialized subclass for student details.
+    ->Additional Property:
+        course or grade: Required, string type (represents enrolled course or grade).
+    ->Methods:
+        Overrides getDetails() → Returns "Name: [name], Age: [age], Course: [course]".
+    ->Effect: Adds student-specific information while still inheriting from Person.
+
+CLASS: Teacher (extends Person)
+    ->Purpose: Specialized subclass for teacher details.
+    ->Additional Property:
+        subject or department: Required, string type (represents subject taught).
+    ->Methods:
+        Overrides getDetails() → Returns "Name: [name], Age: [age], Subject: [subject]".
+    ->Effect: Adds teacher-specific details while still reusing base class properties.
+
+IMPLEMENTATION DETAILS
+    ->Create a Person class with properties name, age, and a method getDetails().
+    ->Create Student subclass:
+        Inherits name and age from Person.
+        Adds new property course.
+        Overrides getDetails() to include course.
+    ->Create Teacher subclass:
+        Inherits name and age from Person.
+        Adds new property subject.
+        Overrides getDetails() to include subject.
+    ->Create instances of Student and Teacher to demonstrate inheritance and method overriding.
+
+LEARNING OUTCOMES
+    Learned how to create a base class in JavaScript using ES6.
+    Understood inheritance and how subclasses extend functionality.
+    Practiced method overriding to customize behavior in subclasses.
+    Gained practical knowledge of object-oriented programming in JavaScript.

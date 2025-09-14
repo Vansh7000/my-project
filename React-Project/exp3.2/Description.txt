@@ -1,0 +1,60 @@
+Library Management UI with Search, Add, and Remove Book Functionality – Description
+
+COMPONENT: LibraryManagement
+    ->Purpose:
+        Provides an interface for managing a collection of books (title + author).
+    ->Features:
+        Search → Filters the list of books dynamically by title or author.
+        Add Book → Allows users to input a new book’s title and author, then adds it to the list.
+        Remove Book → Provides a button next to each book to remove it from the list.
+    ->Effect:
+        Demonstrates real-time UI updates using React state management and event handling.
+
+FILE: App.jsx
+    ->Purpose:
+        Main component that renders the LibraryManagement UI.
+    ->Effect:
+        Centralizes the functionality of searching, adding, and removing books by maintaining the state of the book list.
+
+FILE: LibraryManagement.jsx
+    ->Purpose:
+        Encapsulates all logic for managing the library.
+    ->Key Functionalities:
+        State Variables:
+        books → Stores the current list of books.
+        searchTerm → Stores the user’s search input.
+        newTitle / newAuthor → Stores inputs for adding a new book.
+    ->Handlers:
+        handleSearch → Updates searchTerm and filters books.
+        handleAddBook → Adds a new book to the state list.
+        handleRemoveBook → Removes a book from the state list.
+    ->Effect:
+        Dynamic rendering ensures that the displayed book list always reflects current state without page reloads.
+
+FILE: App.css
+    ->Purpose:
+        Styles the layout and book cards for readability and usability.
+    ->Main Elements:
+        .app-container: Wraps the whole library UI with borders and spacing.
+        .search-box: Input styling for search field.
+        .form-container: Layout for adding a new book (title + author + button).
+        .book-card: Displays each book’s title and author in a styled row.
+        .remove-btn: Styles the button for removing a book.
+
+FILE: main.jsx
+    ->Purpose:
+        Entry point of the React application.
+    ->Effect:
+        Renders the App component into the root DOM element.
+
+FILE: index.css
+    ->Purpose:
+        Provides global page styling.
+    ->Effect:
+        Applies consistent font, resets margins/padding, and adds a light background color.
+
+LEARNING OUTCOMES
+    Learned how to manage state in React using useState.
+    Understood how to handle user events like typing, clicking, and submitting forms.
+    Practiced dynamic rendering of lists with filtering, adding, and removing.
+    Improved knowledge of component structure and CSS styling in React apps.
