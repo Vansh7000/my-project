@@ -1,0 +1,76 @@
+.app-container {
+  border: 1px solid black;
+  padding: 20px;
+  margin: 20px;
+  background: #fff;
+}
+
+.app-container h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Search Input */
+.search-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Add Book Form */
+.add-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.add-form input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-form button {
+  padding: 8px 12px;
+  border: 1px solid #777;
+  border-radius: 4px;
+  background: #f5f5f5;
+  cursor: pointer;
+}
+
+.add-form button:hover {
+  background: #e1e1e1;
+}
+
+/* Book List */
+.book-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.book-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
+  background: #fafafa;
+}
+
+.book-item button {
+  border: 1px solid #888;
+  border-radius: 4px;
+  background: #f9f9f9;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.book-item button:hover {
+  background: #ddd;
+}

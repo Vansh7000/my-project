@@ -1,0 +1,33 @@
+.app-container {
+  border: 1px solid black;
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+}
+
+.app-container h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.product-list {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.product-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 200px;
+  padding: 15px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.product-card h3 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
