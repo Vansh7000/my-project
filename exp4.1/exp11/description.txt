@@ -1,0 +1,46 @@
+This is a simple Express.js server that provides a RESTful API to manage a collection of playing cards. The server stores cards in an in-memory array, so all data will be lost when the server restarts. The API allows users to list, add, retrieve, and delete cards.
+
+Key Features:
+List all cards (GET /cards):
+Returns an array of all cards in the collection. Each card has an id, suit, and value.
+
+Add a new card (POST /cards):
+Accepts JSON data containing suit and value.
+
+Example request body:
+
+json
+Copy code
+{ "suit": "Clubs", "value": "Q" }
+Adds a new card to the collection with a unique id and returns the created card.
+
+Returns 400 Bad Request if suit or value is missing.
+
+Get a specific card by ID (GET /cards/:id):
+Returns the card that matches the specified id.
+
+Returns 404 Not Found if no card exists with the given ID.
+
+Delete a card by ID (DELETE /cards/:id):
+Removes the card with the specified id from the collection.
+
+Returns the deleted card along with a confirmation message.
+
+Returns 404 Not Found if no card exists with the given ID.
+
+Middleware:
+body-parser is used to parse incoming JSON requests.
+
+Server:
+Runs on port 3000.
+
+Logs a message to the console when the server starts:
+
+arduino
+Copy code
+Server is running at http://localhost:3000
+Notes:
+This implementation is in-memory, meaning the data does not persist across server restarts.
+
+Ideal for learning, testing, or prototyping a simple REST API.
+

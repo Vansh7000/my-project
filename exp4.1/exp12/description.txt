@@ -1,0 +1,176 @@
+Overview
+This project is a Node.js and Express.js based REST API that simulates a simple seat booking system for events or movie theaters.
+It implements seat locking so that when a seat is locked by a user:
+
+It cannot be locked or booked by anyone else until confirmed or released.
+
+Locks automatically expire after 1 minute if not confirmed.
+
+All data is stored in-memory for simplicity (no database).
+
+🚀 Features
+View all seats and their states (available, locked, booked).
+
+Lock a seat temporarily for a specific user (auto-expiry in 60s).
+
+Extend lock if the same user requests again.
+
+Confirm booking (only by the user holding the lock).
+
+Release lock manually before expiry.
+
+Built-in concurrency simulation to test multiple users trying to lock the same seat.
+
+🛠️ Tech Stack
+Node.js
+
+Express.js
+
+body-parser (for JSON request handling)
+
+node-fetch (for concurrency simulation if Node < 18)
+
+📂 Project Structure
+bash
+Copy code
+restapi.js   # Main server + API logic
+⚡ API Endpoints
+1️⃣ View All Seats
+GET /seats
+Returns all seats with their states.
+
+✅ Example Response:
+
+json
+Copy code
+{
+  "seats": [
+    { "id": 1, "label": "A1", "state": "available", "lock": null, "bookedBy": null },
+    { "id": 2, "label": "A2", "state": "locked", "lock": { "userId": "alice", "expiresAt": 1695472000000 }, "bookedBy": null }
+  ]
+}
+2️⃣ View Specific Seat
+GET /seats/:id
+
+✅ Example:
+
+bash
+Copy code
+GET /seats/1
+Response:
+
+json
+Copy code
+{
+  "id": 1,
+  "label": "A1",
+  "state": "available",
+  "lock": null,
+  "bookedBy": null
+}
+3️⃣ Lock a Seat
+POST /seats/:id/lock
+Body:
+
+json
+Copy code
+{ "userId": "alice" }
+If seat is available → Lock granted.
+
+If seat already locked by same user → Lock extended.
+
+If locked/booked by another → Error.
+
+✅ Example Response:
+
+json
+Copy code
+{
+  "message": "Seat A1 locked for user 'alice' for 60 seconds.",
+  "seat": {
+    "id": 1,
+    "label": "A1",
+    "state": "locked",
+    "lock": { "userId": "alice", "expiresAt": 1695472000000 }
+  }
+}
+4️⃣ Confirm Booking
+POST /seats/:id/confirm
+Body:
+
+json
+Copy code
+{ "userId": "alice" }
+Only works if seat is locked by same user.
+
+Lock is cleared, seat marked as booked.
+
+✅ Example Response:
+
+json
+Copy code
+{
+  "message": "Seat A1 successfully booked by 'alice'.",
+  "seat": { "id": 1, "label": "A1", "state": "booked", "bookedBy": "alice" }
+}
+5️⃣ Release Lock Manually
+POST /seats/:id/release
+Body:
+
+json
+Copy code
+{ "userId": "alice" }
+✅ Example Response:
+
+json
+Copy code
+{
+  "message": "Lock released for seat A1 by 'alice'.",
+  "seat": { "id": 1, "label": "A1", "state": "available" }
+}
+🧪 Concurrency Simulation
+This demo shows how multiple users try to lock the same seat at the same time.
+
+Run:
+
+bash
+Copy code
+node restapi.js test
+Output Example:
+
+lua
+Copy code
+--- Running concurrency test simulation ---
+Attempting to concurrently lock seat A1 by clients: alice, bob, carol, dave, eve
+[alice] status=200 response= { message: "... Seat locked ..." }
+[bob] status=409 response= { error: "Seat A1 is already locked by another user." }
+[carol] status=409 response= {...}
+...
+-> Client 'alice' acquired the lock. Now confirming the booking...
+Confirm status=200 body= { message: "... Seat booked ..." }
+
+Final seat state: { id: 1, label: "A1", state: "booked", bookedBy: "alice" }
+--- Simulation complete ---
+▶️ Run Instructions
+Install dependencies:
+bash
+Copy code
+npm install express body-parser
+npm install node-fetch   # (only if Node < 18)
+Start server:
+bash
+Copy code
+node restapi.js
+Server runs at: http://localhost:3000
+
+Run with concurrency simulation:
+bash
+Copy code
+node restapi.js test
+📖 Notes
+Locks expire automatically after 1 minute (configurable via LOCK_TTL_MS).
+
+All seat data is stored in-memory → resets when server restarts.
+
+To test manually, use Postman / curl with the endpoints above.
+

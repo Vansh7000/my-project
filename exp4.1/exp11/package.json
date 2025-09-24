@@ -1,0 +1,18 @@
+{
+  "name": "exp11",
+  "version": "1.0.0",
+  "main": "restapi.js",
+  "scripts": {
+  "start": "node restapi.js",
+  "dev": "nodemon restapi.js"
+},
+
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0"
+  }
+}

@@ -1,0 +1,70 @@
+ Description
+This Node.js program is a Command-Line Interface (CLI) Employee Management System. It allows users to manage employee records stored in an in-memory array (no database or files). The program uses Node’s built-in readline module to interact with the user through the terminal.
+
+🔹 Features
+Menu Display
+
+Shows options:
+
+Add Employee
+
+List Employees
+
+Remove Employee
+
+Exit
+
+Add Employee
+
+Prompts the user to enter an employee’s name and ID.
+
+Adds the employee to the array.
+
+List Employees
+
+Displays all employees in the array with numbering, names, and IDs.
+
+If no employees exist, it shows a "No employees found" message.
+
+Remove Employee
+
+Asks the user to enter an Employee ID.
+
+Searches for that ID and removes the corresponding employee from the list.
+
+If the ID is not found, it shows "Employee not found."
+
+Exit
+
+Ends the application gracefully with a goodbye message.
+
+🔹 How It Works
+The application starts by displaying a menu (showMenu() function).
+
+Based on user input, it calls the respective function:
+
+addEmployee() → add new employee
+
+listEmployees() → view all employees
+
+removeEmployee() → delete employee by ID
+
+All employee data is stored in a simple JavaScript array (employees).
+
+Changes only persist during the session (since no external storage/database is used).
+
+🔹 Example Run
+yaml
+Copy code
+Employee Management System
+1. Add Employee
+2. List Employees
+3. Remove Employee
+4. Exit
+
+Enter your choice: 2
+
+Employee List:
+1. Name: Alice, ID: E101
+2. Name: Bob, ID: E102
+3. Name: Charlie, ID: E103
