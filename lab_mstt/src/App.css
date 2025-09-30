@@ -1,0 +1,29 @@
+.app {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.card {
+  background-color: #f0f8ff;
+  border-radius: 10px;
+  padding: 15px;
+  width: 200px;
+  box-shadow: 0 0 5px gray;
+}
+
+button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
