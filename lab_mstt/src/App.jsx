@@ -3,9 +3,9 @@ import "./App.css";
 
 function App() {
   const [patients, setPatients] = useState([
-    { id: 1, name: "Rahul", disease: "Fever" },
-    { id: 2, name: "Anjali", disease: "Cold" },
-    { id: 3, name: "Vikram", disease: "Headache" },
+    { id: 1, name: "Aashi", disease: "Fever" },
+    { id: 2, name: "Charu", disease: "Cold" },
+    { id: 3, name: "Sharma", disease: "Headache" },
   ]);
 
   const removePatient = (id) => {
